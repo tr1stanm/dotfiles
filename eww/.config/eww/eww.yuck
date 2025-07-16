@@ -1,0 +1,15 @@
+(defwindow powermenu
+  :monitor 0 ;; Optional for X11
+  :stacking "overlay"
+  :geometry (geometry
+              :width "4%"
+              :height "95%"
+              :anchor "left center")
+  :exclusive "true"
+  (powermenu_layout))
+
+(defwidget powermenu_layout []
+  (label :text "${time.hour % 12} : ${time.min} : ${time.sec}"))
+
+(defpoll time :interval "1s"
+  `date +'{"hour":"%H","min":"%M","sec":"%S"}'`)

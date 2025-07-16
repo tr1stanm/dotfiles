@@ -1,0 +1,14 @@
+[Unit]
+Description=Music Metadata Stasher
+After=network.target
+
+[Service]
+ExecStart=/home/tristan/.config/scripts/stashMusic.sh
+Restart=always
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:/home/tristan/.local/bin
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

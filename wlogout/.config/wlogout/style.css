@@ -1,0 +1,84 @@
+/* If you're back here because you upgraded the system and wlogout doesn't work with suspend anymore:
+ * sudo systemctl enable nvidia-suspend.service
+ * sudo systemctl enable nvidia-hibernate.service
+ * sudo systemctl enable nvidia-resume.service
+ */
+
+@import url('../../.cache/wal/colors-waybar.css');
+* {
+    all: unset;
+    background-image: none;
+    margin: unset;
+    padding: unset;
+    transition: 200ms cubic-bezier(0, 0, 1, 1);
+}
+button {
+    font-family: 'CodeNewRoman Nerd Font Mono';
+    background-color: alpha(@color9,1);
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+}
+#lock {
+    background-image: image(url("lock.png"));
+    margin : 5px 5px 5px 200px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#shutdown {
+    background-image: image(url("power.png"));
+    margin : 5px 200px 5px 5px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#logout {
+    background-image: image(url("logout.png"));
+    margin : 5px 200px 5px 5px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#reboot {
+
+    background-image: image(url("restart.png"));
+    margin : 5px 5px 5px 200px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#suspend {
+    background-image: image(url("suspend.png"));
+    margin : 5px 200px 5px -190px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+#hibernate {
+    background-image: image(url("hibernate.png"));
+    margin : 5px 200px 5px -190px;
+    padding: 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+#lock:hover {
+    margin : -50px 5px 5px 150px;
+}
+#shutdown:hover {
+    margin : 5px 200px -50px 5px;
+}
+#logout:hover {
+    margin : -50px 200px 5px 5px;
+}
+#reboot:hover {
+    margin : 5px 5px -50px 150px;
+}
+#suspend:hover {
+	margin : -50px 150px 5px -190px;
+}
+#hibernate:hover {
+	margin : 5px 150px -50px -190px;
+}
+button:hover{
+    background-color: alpha(@color5,1);
+    color: #000000;
+    background-position:center;
+}

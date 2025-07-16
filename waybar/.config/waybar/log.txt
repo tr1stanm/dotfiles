@@ -1,0 +1,11 @@
+[2025-07-15 11:46:08.398] [info] Using configuration file /home/tristan/.config/waybar/config
+[2025-07-15 11:46:08.400] [info] Discovered appearance 'dark'
+[2025-07-15 11:46:08.400] [info] Using CSS file /home/tristan/.config/waybar/style.css
+[2025-07-15 11:46:08.410] [info] Hyprland IPC starting
+[2025-07-15 11:46:08.411] [info] Loading persistent workspaces from Waybar config
+[2025-07-15 11:46:08.411] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-07-15 11:46:08.416] [warning] module temperature: Disabling module "temperature", Can't open /sys/class/thermal/thermal_zone0/temp
+[2025-07-15 11:46:08.419] [warning] No batteries.
+[2025-07-15 11:46:08.561] [info] Bar configured (width: 1920, height: 47) for output: HDMI-A-1
+[2025-07-15 11:46:12.087] [info] Quitting.
+[2025-07-15 11:46:12.090] [info] Hyprland IPC stopping...
