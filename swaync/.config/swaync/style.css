@@ -31,7 +31,7 @@
 .floating-notifications.background .notification-background .notification .notification-content {
 }
 .notification{
-    background: alpha(@mycolor,.5);
+    background: alpha(@mycolor,.8);
 
 }
 
@@ -347,7 +347,7 @@ trough slider:hover {
 }
 */
 trough slider {
-    background: @text;
+    background: @mycolor;
     border-radius: 50%;
     min-width: 12px;
     min-height: 12px;
