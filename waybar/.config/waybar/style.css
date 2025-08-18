@@ -1,120 +1,64 @@
-@import url('../../.cache/wal/colors-waybar.css');
+/* ================================
+   Fallback colors for Pywal
+   ================================ */
+@define-color background #1e1e2e;
+@define-color foreground #cdd6f4;
+@define-color color7 #cdd6f4;
+@define-color color9 #f38ba8;
 
+/* ================================
+   Your Waybar styling
+   ================================ */
 * {
-    font-size:15px;
+    font-size: 15px;
     font-family: "CodeNewRoman Nerd Font Propo";
 }
-window#waybar{
-    all:unset;
+
+window#waybar {
+    all: unset;
 }
-.modules-left {
-    padding:7px;
-    margin:10 0 5 10;
-    border-radius:10px;
-    background: alpha(@background,.6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
-}
-.modules-center {
-    padding:7px;
-    margin:10 0 5 0;
-    border-radius:10px;
-    background: alpha(@background,.6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
-}
+
+.modules-left,
+.modules-center,
 .modules-right {
-    padding:7px;
-    margin: 10 10 5 0;
-    border-radius:10px;
-    background: alpha(@background,.6);
+    padding: 7px;
+    margin: 10px 0 5px 0;
+    border-radius: 10px;
+    background: alpha(@background, .6);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
+
+/* Tooltip */
 tooltip {
-    background:@background;
+    background: @background;
     color: @color7;
 }
-#clock:hover, #custom-pacman:hover, #custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover{
-    transition: all .3s ease;
-    color:@color9;
-}
-#custom-notification {
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
-}
-#clock{
-    padding: 0px 5px;
-    color:@color7;
-    transition: all .3s ease;
-}
-#custom-pacman{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
 
-}
-#workspaces {
-    padding: 0px 5px;
-}
-#workspaces button {
-    all:unset;
-    padding: 0px 5px;
-    color: alpha(@color9,.4);
-    transition: all .2s ease;
-}
-#workspaces button:hover {
-    color:rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
-}
-#workspaces button.active {
+/* Hoverable modules */
+#clock:hover,
+#custom-pacman:hover,
+#custom-notification:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+    transition: all .3s ease;
     color: @color9;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
 }
-#workspaces button.empty {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
-}
-#workspaces button.empty:hover {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
-}
-#workspaces button.empty.active {
-    color: @color9;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
-}
-#bluetooth{
+
+/* Clock, notification, and pacman */
+#clock, #custom-notification, #custom-pacman,
+#bluetooth, #network, #battery, #cpu, #memory, #temperature {
     padding: 0px 5px;
+    color: @color7;
     transition: all .3s ease;
-    color:@color7;
-
-}
-#network{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
-
-}
-#battery{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
-
-
-}
-#battery.charging {
-    color: #26A65B;
 }
 
-#battery.warning:not(.charging) {
-    color: #ffbe61;
-}
-
+/* Battery states */
+#battery.charging { color: #26A65B; }
+#battery.warning:not(.charging) { color: #ffbe61; }
 #battery.critical:not(.charging) {
     color: #f53c3c;
     animation-name: blink;
@@ -123,46 +67,52 @@ tooltip {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-#group-expand{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-}
-#custom-expand{
-    padding: 0px 5px;
-    color:alpha(@foreground,.2);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
-    transition: all .3s ease; 
-}
-#custom-expand:hover{
-    color:rgba(255,255,255,.2);
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
-}
-#custom-colorpicker{
-    padding: 0px 5px;
-}
-#cpu,#memory,#temperature{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-    color:@color7;
 
-}
-#custom-endpoint{
-    color:transparent;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
-
-}
-#tray{
+/* Workspaces */
+#workspaces { padding: 0px 5px; }
+#workspaces button {
+    all: unset;
     padding: 0px 5px;
-    transition: all .3s ease; 
-
+    color: alpha(@color9, .4);
+    transition: all .2s ease;
 }
-#tray menu * {
-    padding: 0px 5px;
-    transition: all .3s ease; 
-}
+#workspaces button:hover { color: rgba(0,0,0,0); border: none; text-shadow: 0px 0px 1.5px rgba(0,0,0,.5); transition: all 1s ease; }
+#workspaces button.active { color: @color9; border: none; text-shadow: 0px 0px 2px rgba(0,0,0,.5); }
+#workspaces button.empty { color: rgba(0,0,0,0); border: none; text-shadow: 0px 0px 1.5px rgba(0,0,0,.2); }
+#workspaces button.empty:hover { color: rgba(0,0,0,0); border: none; text-shadow: 0px 0px 1.5px rgba(0,0,0,.5); transition: all 1s ease; }
+#workspaces button.empty.active { color: @color9; border: none; text-shadow: 0px 0px 2px rgba(0,0,0,.5); }
 
+/* Tray */
+#tray,
+#tray menu *,
 #tray menu separator {
     padding: 0px 5px;
-    transition: all .3s ease; 
+    transition: all .3s ease;
 }
+
+/* Custom expand module */
+#custom-expand {
+    padding: 0px 5px;
+    color: alpha(@foreground, .2);
+    text-shadow: 0px 0px 2px rgba(0,0,0,.7);
+    transition: all .3s ease;
+}
+#custom-expand:hover {
+    color: rgba(255,255,255,.2);
+    text-shadow: 0px 0px 2px rgba(255,255,255,.5);
+}
+
+/* Custom cava module */
+#custom-cava {
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color: @color7;
+}
+#custom-cava:hover {
+    color: @color9;
+}
+
+/* Custom endpoint & color picker */
+#custom-endpoint { color: transparent; text-shadow: 0 0 1.5px rgba(0,0,0,1); }
+#custom-colorpicker { padding: 0px 5px; }
 
