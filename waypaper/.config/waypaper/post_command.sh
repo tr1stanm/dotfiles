@@ -9,7 +9,8 @@ echo "preload = $wall" > ~/.config/hypr/hyprpaper.conf
 echo "wallpaper = , $wall" >> ~/.config/hypr/hyprpaper.conf
 
 # pkill waybar && hyprctl dispatch exec waybar
-pkill -USR2 waybar
+# pkill -SIGUSR2 waybar
+~/.config/scripts/generate_waybar_css.py
 pywalfox update
 pkill swaync && swaync
 pkill -USR2 btop
