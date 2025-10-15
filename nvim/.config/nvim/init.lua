@@ -2,7 +2,6 @@ package.path = package.path .. ";/usr/share/lua/5.4/?.lua"
 
 local json = require("dkjson")  -- now it should work
 
-
 require("tristan")
 require("tristan.lazy")
 require("tristan.nvim-tree")
