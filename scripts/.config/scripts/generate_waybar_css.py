@@ -46,7 +46,7 @@ css = f"""/* ================================
    ================================ */
 * {{
     font-size: 15px;
-    font-family: "CodeNewRoman Nerd Font Propo";
+    font-family: "Agave Nerd Font Propo";
 }}
 
 
@@ -90,7 +90,7 @@ tooltip {{
 
 /* Clock, notification, and pacman */
 #clock, #custom-notification, #custom-pacman,
-#bluetooth, #network, #battery, #cpu, #memory, #temperature {{
+#bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris {{
     padding: 0px 5px;
     color: rgb({c7[0]},{c7[1]},{c7[2]});
     transition: all .3s ease;
@@ -167,7 +167,6 @@ tooltip {{
     color: rgba(255,255,255,.2);
     text-shadow: 0px 0px 2px rgba(255,255,255,.5);
 }}
-
 
 /* Custom cava module */
 #custom-cava {{
