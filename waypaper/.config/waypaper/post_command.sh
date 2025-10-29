@@ -18,3 +18,5 @@ pkill -USR2 btop
 ~/.config/waypaper/changekeys.sh
 ~/.config/waypaper/changeborder.sh
 ~/.config/waybar/scripts/wayveswal.sh
+
+hyprctl reload

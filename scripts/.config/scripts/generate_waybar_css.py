@@ -45,7 +45,7 @@ css = f"""/* ================================
    Your Waybar styling
    ================================ */
 * {{
-    font-size: 15px;
+    font-size: 18px;
     font-family: "Agave Nerd Font Propo";
 }}
 

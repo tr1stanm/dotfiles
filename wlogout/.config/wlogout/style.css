@@ -21,6 +21,9 @@ button {
 
 
 }
+#lock, #shutdown, #logout, #reboot, #suspend, #hibernate {
+    background-size: 128px 128px; /* change as needed */
+}
 #lock {
     background-image: image(url("lock.png"));
     margin : 5px 5px 5px 200px;

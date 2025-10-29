@@ -68,7 +68,7 @@
             }
         },
 	"clock#date": {
-		"format": "{:%d %B %Y}",
+		"format": "{:%a %d %B %Y}",
 	},
 
         "network": {
