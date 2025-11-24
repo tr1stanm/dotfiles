@@ -1,0 +1,14 @@
+[StreamInputs]
+inputDevice=alsa_output.pci-0000_14_00.6.analog-stereo
+
+[StreamOutputs]
+blocklist=Brave,Dead Space
+outputDevice=alsa_output.pci-0000_14_00.6.analog-stereo
+plugins=equalizer#0
+visiblePlugin=equalizer#0
+
+[Window]
+autostartOnLogin=true
+height=752
+visiblePipeWirePage=testSignalsPage
+width=1499

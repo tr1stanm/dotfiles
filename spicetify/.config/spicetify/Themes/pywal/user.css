@@ -1,0 +1,142 @@
+/* ================================
+   Fancy Pywal Spotify Theme
+   ================================ */
+
+/* Root variables from color.ini */
+:root {
+    --spice-text: var(--text);
+    --spice-subtext: var(--subtext);
+    --spice-main: var(--main);
+    --spice-sidebar: var(--sidebar);
+    --spice-player: var(--player);
+    --spice-card: var(--card);
+    --spice-shadow: var(--shadow);
+    --spice-selected-row: var(--selected-row);
+    --spice-button: var(--button);
+    --spice-tab-active: var(--tab-active);
+
+    /* Optional RGBA for translucency */
+    --spice-sidebar-bg: rgba(var(--spice-sidebar-rgb, 142, 43, 22), 0.85);
+    --spice-main-bg: rgba(var(--spice-main-rgb, 15, 8, 8), 0.9);
+    --spice-card-bg: rgba(var(--spice-card-rgb, 176, 33, 20), 0.7);
+}
+
+/* ================================
+   Top Bar
+   ================================ */
+.Root__globalNav {
+    background-color: var(--spice-main-bg);
+    color: var(--spice-text);
+    border-bottom: 1px solid var(--spice-shadow);
+}
+.Root__globalNav .main-globalNav-navLinkActive {
+    background-color: var(--spice-tab-active) !important;
+    color: var(--spice-text);
+}
+
+/* ================================
+   Sidebar
+   ================================ */
+.main-yourLibraryX-libraryContainer,
+.Root__nav-bar {
+    background-color: var(--spice-sidebar-bg);
+}
+.main-yourLibraryX-navLink,
+.main-yourLibraryX-navLinkActive {
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: all 0.15s ease;
+}
+.main-yourLibraryX-navLink:hover {
+    background-color: var(--spice-selected-row);
+    color: var(--spice-text);
+}
+
+/* ================================
+   Main View / Track List
+   ================================ */
+.main-trackList-trackListRow {
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+}
+.main-trackList-trackListRow:hover {
+    background-color: var(--spice-card-bg);
+}
+.main-trackList-trackListRow.main-trackList-selected {
+    background-color: var(--spice-selected-row);
+}
+
+/* Cards / Playlists */
+.main-card-card {
+    background-color: var(--spice-card-bg);
+    color: var(--spice-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--spice-shadow);
+    transition: transform 0.2s ease;
+}
+.main-card-card:hover {
+    transform: translateY(-2px);
+}
+
+/* ================================
+   Now Playing Bar
+   ================================ */
+.main-nowPlayingBar-nowPlayingBar {
+    background-color: var(--spice-player);
+    color: var(--spice-text);
+    border-top: 1px solid var(--spice-shadow);
+}
+.main-playPauseButton-button {
+    background-color: var(--spice-button);
+    color: var(--spice-text) !important;
+    border-radius: 6px;
+}
+.main-playPauseButton-button:hover {
+    background-color: var(--spice-tab-active);
+}
+
+/* ================================
+   Scrollbars
+   ================================ */
+.os-scrollbar-handle {
+    background-color: var(--spice-shadow);
+    border-radius: 4px !important;
+    width: 6px !important;
+}
+.os-scrollbar-handle:hover,
+.os-scrollbar-handle:active {
+    background-color: var(--spice-selected-row);
+}
+
+/* ================================
+   Misc / Context Menu / Buttons
+   ================================ */
+.main-contextMenu-menu {
+    background-color: var(--spice-sidebar-bg);
+    color: var(--spice-text);
+}
+.main-contextMenu-menuItemButton:hover {
+    background-color: var(--spice-selected-row);
+}
+
+/* Heart / Play icons */
+#_R_G *:not([fill="none"]) {
+    fill: var(--spice-button) !important;
+}
+#_R_G *:not([stroke="none"]) {
+    stroke: var(--spice-button);
+}
+
+/* ================================
+   Translucent overlays & highlights
+   ================================ */
+.main-home-filterChipsSection,
+.main-entityHeader-background,
+.main-entityHeader-gradient {
+    background-color: var(--spice-main-bg) !important;
+    backdrop-filter: blur(8px);
+}
+.main-entityHeader-shadow {
+    opacity: 0.3;
+}
+

@@ -11,6 +11,7 @@ echo "wallpaper = , $wall" >> ~/.config/hypr/hyprpaper.conf
 # pkill waybar && hyprctl dispatch exec waybar
 # pkill -SIGUSR2 waybar
 ~/.config/scripts/generate_waybar_css.py
+~/.config/scripts/pywal-brave.sh
 pywalfox update
 pkill swaync && swaync
 pkill -USR2 btop

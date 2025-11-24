@@ -1,0 +1,16 @@
+color0=#03050B
+color1=#2C3E8C
+color2=#354B97
+color3=#535EA5
+color4=#5872D2
+color5=#9B6A9D
+color6=#708DE1
+color7=#cdc9e7
+color8=#8f8ca1
+color9=#2C3E8C
+color10=#354B97
+color11=#535EA5
+color12=#5872D2
+color13=#9B6A9D
+color14=#708DE1
+color15=#cdc9e7

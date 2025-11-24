@@ -1,0 +1,13 @@
+[Unit]
+Description=Wallpaper Auto-Changer
+After=graphical-session.target
+
+[Service]
+ExecStart=/home/tristan/.config/scripts/randompaper.sh
+Restart=always
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:/home/tristan/.local/bin
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=EasyEffects
+After=hyprland-session.target pipewire.service wireplumber.service graphical-session.target
+Wants=pipewire.service wireplumber.service
+PartOf=hyprland-session.target
+
+[Service]
+ExecStart=/usr/bin/easyeffects --gapplication-service
+Restart=on-failure
+TimeoutStopSec=5s
+Slice=background.slice
+
+[Install]
+WantedBy=default.target

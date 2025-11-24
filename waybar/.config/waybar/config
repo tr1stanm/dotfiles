@@ -18,7 +18,7 @@
 		"status-icons": {
 			"paused": ""
 		},
-		"dynamic-len": 56,
+		"dynamic-len": 54,
 		"dynamic-importance-order": ["title", "artist", "position", "length", "album"],
 	},
 	"custom/wayves": {
@@ -78,7 +78,7 @@
             "tooltip-format-disconnected": "Error",
             "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
             "tooltip-format-ethernet": "{ifname} ",
-            "on-click": "kitty nmtui"
+            "on-click": "iwgtk"
         },
         "bluetooth": {
             "format-on": "󰂯",

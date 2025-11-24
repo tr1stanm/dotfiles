@@ -18,3 +18,6 @@ require("notify")("hello again.")
 --vim.cmd("let g:airline_theme='distinguished'")
 --vim.cmd("colorscheme mellow")
 vim.cmd("set number")
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
