@@ -1,6 +1,8 @@
-{
+[{
         "layer": "top",
-	"mode": "dock",
+        "name": "monitor-1",
+        "output": "DP-1",
+        "mode": "dock",
         "position": "top",
         "reload_style_on_change": true,
         "modules-left": ["custom/notification","clock", "mpris"],
@@ -162,5 +164,79 @@
             "spacing": 10
         },
 
-} 
+}, {
+    "layer": "top",
+    "name": "monitor-2-top",
+    "position": "top",
+    "output": "DP-2",
+    "modules-left": ["clock", "mpris"],
+    "modules-center": [],
+    "modules-right": ["clock#date"],
+
+	"custom/wayves": {
+	    "format": "{}",
+	    "exec": "python ~/.config/wayves/wayves.py -o cava -i cava -a cava"
+	},
+    "clock": {
+        "format": "{:%I:%M:%S %p} ",
+        "interval": 1,   
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#fAfBfC'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "shift_down",
+            "on-click": "shift_up"
+        }
+    },
+	"clock#date": {
+		"format": "{:%a %d %B %Y}",
+	},
+	"mpris": {
+		"format": "{player_icon} {dynamic}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶",
+			"mpv": "🎵"
+		},
+		"interval": 1,
+		"status-icons": {
+			"paused": ""
+		},
+		"dynamic-len": 54,
+		"dynamic-importance-order": ["title", "artist", "position", "length", "album"],
+	},
+
+}, {
+    "layer": "bottom",
+    "position": "bottom",
+    "name": "monitor-2-bottom",
+    "output": "DP-2",
+    "modules-left": [],
+    "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
+    "modules-right": [],
+	"custom/wayves_left": {
+	    "format": "{}",
+	    "exec": "python ~/.config/wayves/wayves.py -o cava=left -i cava=left -a cava=left"
+	},
+
+	"custom/wayves_right": {
+	    "format": "{}",
+	    "exec": "python ~/.config/wayves/wayves.py -o cava=right -i cava=right -a cava=right"
+	},
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [ 6,7,8,9,10 ]
+        }
+    },
+
+}]
 

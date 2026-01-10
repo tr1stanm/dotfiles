@@ -10,6 +10,7 @@ eval "$(starship init bash)"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias timeshift='timeshift-launcher'
+alias rustbook='rustup doc --book'
 PS1='[\u@\h \W]\$ '
 
 #pywall stuff
@@ -26,3 +27,4 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
     fi
 fi
 
+. "$HOME/.cargo/env"

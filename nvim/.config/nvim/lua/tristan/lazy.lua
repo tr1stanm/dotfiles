@@ -39,5 +39,12 @@ require("lazy").setup({
 	--"vim-airline/vim-airline",
 	--"vim-airline/vim-airline-themes",
 	"AlphaTechnolog/pywal.nvim",
-	"nvim-lualine/lualine.nvim"
+	"nvim-lualine/lualine.nvim",
+    "simrat39/rust-tools.nvim",
+    "rust-lang/rust.vim",
+    {
+      'mrcjkb/rustaceanvim',
+      version = '^6', -- Recommended
+      lazy = false, -- This plugin is already lazy
+    }
 })

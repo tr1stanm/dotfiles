@@ -44,7 +44,7 @@ css = f"""/* ================================
 /* ================================
    Your Waybar styling
    ================================ */
-* {{
+window#waybar * {{
     font-size: 18px;
     font-family: "Agave Nerd Font Propo";
 }}
@@ -182,6 +182,20 @@ tooltip {{
 /* Custom endpoint & color picker */
 #custom-endpoint {{ color: transparent; text-shadow: 0 0 1.5px rgba(0,0,0,1); }}
 #custom-colorpicker {{ padding: 0px 5px; }}
+
+window#waybar.monitor-2-bottom * {{ font-size: 17px; }}
+
+window#waybar.monitor-2-bottom .modules-left,
+window#waybar.monitor-2-bottom .modules-right,
+window#waybar.monitor-2-top .modules-center {{
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+}}
+
+window#waybar.monitor-2-top * {{ font-size: 17px; }}
+
 """
 
 # Write to file
