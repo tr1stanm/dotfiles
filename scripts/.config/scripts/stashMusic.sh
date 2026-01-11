@@ -26,7 +26,7 @@ update_art() {
       cleanup_art
     fi
   else
-    curl -sf "$url" -o "$artfile_jpg" && magick "$artfile_jpg" -blur 0x1 -brightness-contrast -10x-40 "$artfile" && rm "$artfile_jpg" || cleanup_art
+    curl -sf "$url" -o "$artfile_jpg" && magick "$artfile_jpg" "$artfile" && rm "$artfile_jpg" || cleanup_art
   fi
 }
 

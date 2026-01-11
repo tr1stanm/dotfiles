@@ -3,8 +3,8 @@
    ================================ */
 @define-color background rgb(30,30,46);
 @define-color foreground rgb(205,214,244);
-@define-color color7 rgb(191,189,172);
-@define-color color9 rgb(47,72,41);
+@define-color color7 rgb(227,156,135);
+@define-color color9 rgb(143,13,4);
 
 
 
@@ -36,7 +36,7 @@ window#waybar {
 /* Tooltip */
 tooltip {
     background: rgb(30,30,46);
-    color: rgb(191,189,172);
+    color: rgb(227,156,135);
 }
 
 
@@ -51,7 +51,7 @@ tooltip {
 #memory:hover,
 #temperature:hover {
     transition: all .3s ease;
-    color: rgb(47,72,41);
+    color: rgb(143,13,4);
 }
 
 
@@ -59,7 +59,7 @@ tooltip {
 #clock, #custom-notification, #custom-pacman,
 #bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris {
     padding: 0px 5px;
-    color: rgb(191,189,172);
+    color: rgb(227,156,135);
     transition: all .3s ease;
 }
 
@@ -82,7 +82,7 @@ tooltip {
 #workspaces button {
     all: unset;
     padding: 0px 5px;
-    color: rgba(47,72,41,0.4);
+    color: rgba(143,13,4,0.4);
     transition: all .2s ease;
 }
 #workspaces button:hover { 
@@ -92,7 +92,7 @@ tooltip {
     transition: all 1s ease; 
 }
 #workspaces button.active { 
-    color: rgb(47,72,41); 
+    color: rgb(143,13,4); 
     border: none; 
     text-shadow: 0px 0px 2px rgba(0,0,0,.5); 
 }
@@ -108,7 +108,7 @@ tooltip {
     transition: all 1s ease; 
 }
 #workspaces button.empty.active { 
-    color: rgb(47,72,41); 
+    color: rgb(143,13,4); 
     border: none; 
     text-shadow: 0px 0px 2px rgba(0,0,0,.5); 
 }
@@ -126,7 +126,7 @@ tooltip {
 /* Custom expand module */
 #custom-expand {
     padding: 0px 5px;
-    color: rgba(191,189,172,.2);
+    color: rgba(227,156,135,.2);
     text-shadow: 0px 0px 2px rgba(0,0,0,.7);
     transition: all .3s ease;
 }
@@ -139,10 +139,10 @@ tooltip {
 #custom-cava {
     padding: 0px 5px;
     transition: all .3s ease;
-    color: rgb(191,189,172);
+    color: rgb(227,156,135);
 }
 #custom-cava:hover {
-    color: rgb(47,72,41);
+    color: rgb(143,13,4);
 }
 
 
@@ -166,5 +166,5 @@ window#waybar.monitor-2-top * { font-size: 17px; }
 
 #custom-wayves_left,
 #custom-wayves_right {
-  color: #8D6E4F;
+  color: #CD2D10;
 }
