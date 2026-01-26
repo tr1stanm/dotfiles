@@ -9,8 +9,10 @@ eval "$(starship init bash)"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias timeshift='timeshift-launcher'
+alias timeshift='sudo timeshift-launcher'
 alias rustbook='rustup doc --book'
+alias build='cmake --build --preset default'
+
 PS1='[\u@\h \W]\$ '
 
 #pywall stuff

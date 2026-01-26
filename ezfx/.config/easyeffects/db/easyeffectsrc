@@ -2,7 +2,7 @@
 processAllOutputs=false
 
 [StreamInputs]
-inputDevice=alsa_input.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.mono-fallback
+inputDevice=alsa_output.pci-0000_14_00.6.analog-stereo
 
 [StreamOutputs]
 blocklist=Brave,Dead Space,The Last of Us™ Part I
@@ -12,6 +12,6 @@ visiblePlugin=equalizer#0
 
 [Window]
 autostartOnLogin=true
-height=752
+height=677
 visiblePipeWirePage=testSignalsPage
-width=1499
+width=1261

@@ -1,6 +1,7 @@
 [general]
 bars = 20
 framerate = 30
+sensitivity = 175
 
 [output]
 method = raw
