@@ -34651,7 +34651,7 @@ html[dir="rtl"] .transparent-controls { left: 0; right: inherit; }
     else document.body.style.removeProperty("--lib-target-size");
     setupHoverToggle({
       containerSelector: ".Root__top-container",
-      onTopContainerSelectors: [".Root__nav-bar"],
+      onTopContainerSelectors: [".Root__nav-bar, #Desktop_LeftSidebar_Id"],
       hoverTargetId: "lib-hover-target",
       className: "show",
       condition: library.autoHide
@@ -38485,6 +38485,27 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
     { uris }
   );
 
+  // extension/utils/colors/getCoverColor.ts
+  async function getCoverColor(imageUrl) {
+    const spotifyColors = await getExtractedColors([imageUrl]);
+    const extracted = spotifyColors?.data?.extractedColors?.[0];
+    if (extracted && !extracted.colorRaw?.fallback) {
+      return extracted;
+    }
+    const [colorData] = await Spicetify.extractColorPreset(imageUrl);
+    if (colorData && !colorData.isFallback) {
+      return {
+        colorRaw: { hex: colorData.colorRaw.toCSS(Spicetify.Color.CSSFormat.HEX), fallback: false },
+        colorDark: { hex: colorData.colorDark.toCSS(Spicetify.Color.CSSFormat.HEX), fallback: false },
+        colorLight: {
+          hex: colorData.colorLight.toCSS(Spicetify.Color.CSSFormat.HEX),
+          fallback: false
+        }
+      };
+    }
+    return void 0;
+  }
+
   // extension/utils/page/getArtworkByPageUrl.ts
   var getSpotifyURL = (pathname) => {
     const id = pathname.match(/\/(playlist|artist|album|user|show|collection)\/([^/]+)/);
@@ -38560,8 +38581,8 @@ header, h1, h2, h3, h4, h5, h6, strong, b {
     else style.removeProperty("--page-desktop-img-url");
     const finalPageImgUrl = desktopImageUrl ?? imageUrl;
     if (finalPageImgUrl) {
-      const extractedColors = await getExtractedColors([finalPageImgUrl]);
-      const colorHex = extractedColors?.data?.extractedColors?.[0]?.colorDark?.hex;
+      const extractedColors = await getCoverColor(finalPageImgUrl);
+      const colorHex = extractedColors?.colorDark?.hex;
       if (colorHex) {
         style.setProperty("--page-accent-color", colorHex);
         style.setProperty("--page-accent-color-rgb", hexToRGB(colorHex));
@@ -38863,12 +38884,12 @@ button[data-testid="pip-toggle-button"] path{
     };
     const currentUrl = getImageUrl(data.item);
     if (!currentUrl) return;
-    const currentColors = await getExtractedColors([currentUrl]);
+    const currentColors = await getCoverColor(currentUrl);
     document.body.style.setProperty("--np-img-url", `url("${currentUrl}")`);
     tempStore_default.getState().setPlayer({
       current: {
         url: currentUrl,
-        colors: currentColors?.data?.extractedColors?.[0] ?? void 0,
+        colors: currentColors,
         data: data.item
       }
     });
@@ -38879,10 +38900,10 @@ button[data-testid="pip-toggle-button"] path{
         items?.map(async (item) => {
           const url2 = getImageUrl(item);
           if (!url2) return null;
-          const colors = await getExtractedColors([url2]);
+          const colors = await getCoverColor(url2);
           return {
             url: url2,
-            colors: colors?.data?.extractedColors?.[0] ?? void 0,
+            colors,
             data: item
           };
         }) ?? []

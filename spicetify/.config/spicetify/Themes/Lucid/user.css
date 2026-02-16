@@ -159,6 +159,8 @@ body {
     height: var(--x-hover-target-size);
     background: none;
   }
+  #Desktop_LeftSidebar_Id,
+  .WBFaUw_oOfN2m4aTxggt,
   .Root__nav-bar {
     position: fixed;
     left: -100%;
@@ -169,9 +171,9 @@ body {
     .LayoutResizer__resize-bar:after {
       width: 4px;
     }
-  }
-  .Root__nav-bar.show {
-    left: var(--panel-gap);
+    &.show {
+      left: var(--panel-gap);
+    }
   }
   .main-yourLibraryX-button:has(path[d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"]) {
     display: none;
@@ -1708,7 +1710,7 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
     position: absolute;
     top: 50%;
     right: 0rem;
-    width: 9rem;
+    width: 8rem;
     overflow: hidden;
     gap: 4px;
     padding: 0.5rem 0.5rem;
@@ -2715,6 +2717,9 @@ dialog[aria-describedby=clear-cache-dialog-heading] {
   div:last-child {
     top: 1.25rem;
   }
+}
+.yfJeY2Xi99dPOe6fsIha {
+  height: fit-content;
 }
 .OyLgnahIHw63684ABRBF {
   margin-top: 16px;
