@@ -22,7 +22,7 @@
 
 {
 	"label" : "suspend",
-	"action" : "systemctl suspend & hyprlock",
+	"action" : "systemctl suspend",
 	"keybind" : "s"
 }
 

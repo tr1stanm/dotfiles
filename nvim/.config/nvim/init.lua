@@ -1,4 +1,4 @@
-package.path = package.path .. ";/usr/share/lua/5.4/?.lua"
+package.path = package.path .. ";/usr/share/lua/5.5/?.lua"
 
 local json = require("dkjson")  -- now it should work
 
