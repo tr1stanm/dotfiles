@@ -32,6 +32,10 @@ c9 = get_color("color9", "#f38ba8")
 
 # Generate formatted CSS
 css = f"""/* ================================
+   DO NOT EDIT IN STYLE.CSS - EDIT IN SCRIPTS/GENERATE_WAYBAR_CSS.PY
+   ================================ */
+
+/* ================================
    Fallback colors for Pywal
    ================================ */
 @define-color background rgb({bg[0]},{bg[1]},{bg[2]});
@@ -82,7 +86,8 @@ tooltip {{
 #battery:hover,
 #cpu:hover,
 #memory:hover,
-#temperature:hover {{
+#temperature:hover,
+#custom-vpn:hover {{
     transition: all .3s ease;
     color: rgb({c9[0]},{c9[1]},{c9[2]});
 }}
@@ -90,7 +95,7 @@ tooltip {{
 
 /* Clock, notification, and pacman */
 #clock, #custom-notification, #custom-pacman,
-#bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris {{
+#bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris, #custom-vpn {{
     padding: 0px 5px;
     color: rgb({c7[0]},{c7[1]},{c7[2]});
     transition: all .3s ease;

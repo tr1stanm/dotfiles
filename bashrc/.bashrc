@@ -16,6 +16,7 @@ alias bottles='flatpak run com.usebottles.bottles'
 alias sql='sudo -i -u postgres'
 alias py='python3'
 alias vpn='nordvpn'
+alias vpngui='nordvpn-gui'
 alias pdf='evince'
 
 PS1='[\u@\h \W]\$ '

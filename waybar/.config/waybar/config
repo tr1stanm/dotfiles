@@ -7,7 +7,7 @@
         "reload_style_on_change": true,
         "modules-left": ["custom/notification","clock", "mpris"],
         "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
-        "modules-right": ["clock#date", "bluetooth","network"],
+        "modules-right": ["clock#date", "bluetooth","network","custom/vpn"],
 
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
@@ -38,6 +38,14 @@
 	    "exec": "python ~/.config/wayves/wayves.py -o cava=right -i cava=right -a cava=right"
 	},
 
+    "custom/vpn": {
+        "format": "{text}",
+        "exec": "~/.config/waybar/scripts/nord.sh",
+        "on-click": "~/.config/waybar/scripts/nord.sh --toggle",
+        "interval": 3,
+        "return-type": "json"
+    },
+
         "hyprland/workspaces": {
             "format": "{icon}",
             "format-icons": {
@@ -49,6 +57,7 @@
                 "*": [ 1,2,3,4,5 ]
             }
         },
+
         "custom/notification": {
             "tooltip": false,
             "format": "",
