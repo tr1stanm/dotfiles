@@ -11,11 +11,27 @@ done
 
 is_connected() {
     if ip link show nordlynx &>/dev/null; then
+        local FULLSTATUS
         local STATUS
-        STATUS=$(nordvpn status | grep -o 'Status: [A-Za-z]*' | cut -d' ' -f2)
+        FULLSTATUS=$(nordvpn status)
+        STATUS=$(echo "$FULLSTATUS" | grep -o 'Status: [A-Za-z]*' | cut -d' ' -f2)
         [[ "$STATUS" == "Connected" ]]
+
+        IP=$(echo "$FULLSTATUS" | grep -o 'IP: [0-9\.]*' | cut -d' ' -f2)
+        CITY=$(echo "$FULLSTATUS" | grep -o 'City: [A-Za-z]*' | cut -d' ' -f2) 
+        COUNTRY=$(echo "$FULLSTATUS" | grep -o 'Country: [A-Za-z]*' | cut -d' ' -f2)
+        COUNTRYABBREV=$(jq '.[] | select(.country=="'$COUNTRY'").abbreviation' \
+            ~/.config/waybar/assets/country-by-abbreviation.json | sed 's/"//g')
     else
         return 1
+    fi
+}
+
+connect_msg() {
+    if is_connected; then
+        notify-send "$IP - $CITY, $COUNTRYABBREV"
+    else
+        notify-send "Disconnected from VPN"
     fi
 }
 
@@ -29,6 +45,7 @@ toggle_vpn() {
 
 if [[ -n "$TOGGLE" ]]; then
     toggle_vpn
+    connect_msg
     sleep 1
 fi
 

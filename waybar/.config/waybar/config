@@ -43,7 +43,8 @@
         "exec": "~/.config/waybar/scripts/nord.sh",
         "on-click": "~/.config/waybar/scripts/nord.sh --toggle",
         "interval": 3,
-        "return-type": "json"
+        "return-type": "json",
+        "tooltip": "true",
     },
 
         "hyprland/workspaces": {
