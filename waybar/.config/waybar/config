@@ -8,12 +8,13 @@
         "modules-left": ["custom/notification","clock", "mpris"],
         "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
         "modules-right": ["clock#date", "bluetooth","network","custom/vpn"],
+
     "custom/vpn": {
         "format": "{text}",
-        "exec": "~/.config/waybar/scripts/nord.sh",
-        "on-click": "~/.config/waybar/scripts/nord.sh --toggle",
-        "on-click-right": "nordvpn-gui",
+        "exec": "cat $HOME/.config/waybar/assets/vpnout.txt",
         "interval": 3,
+        "on-click": "~/.config/scripts/nord.sh --toggle",
+        "on-click-right": "nordvpn-gui &",
         "return-type": "json",
         "tooltip": "true"
     },
