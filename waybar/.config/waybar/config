@@ -8,7 +8,17 @@
         "modules-left": ["custom/notification","clock", "mpris"],
         "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
         "modules-right": ["clock#date", "bluetooth","network","custom/vpn"],
+    "custom/vpn": {
+        "format": "{text}",
+        "exec": "~/.config/waybar/scripts/nord.sh",
+        "on-click": "~/.config/waybar/scripts/nord.sh --toggle",
+        "on-click-right": "nordvpn-gui",
+        "interval": 3,
+        "return-type": "json",
+        "tooltip": "true"
+    },
 
+    
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
 		"format-paused": "{status_icon} <i>{dynamic}</i>",
@@ -38,15 +48,6 @@
 	    "exec": "python ~/.config/wayves/wayves.py -o cava=right -i cava=right -a cava=right"
 	},
 
-    "custom/vpn": {
-        "format": "{text}",
-        "exec": "~/.config/waybar/scripts/nord.sh",
-        "on-click": "~/.config/waybar/scripts/nord.sh --toggle",
-        "on-click-right": "nordvpn-gui",
-        "interval": 3,
-        "return-type": "json",
-        "tooltip": "true",
-    },
 
         "hyprland/workspaces": {
             "format": "{icon}",
@@ -228,6 +229,7 @@
     "modules-left": [],
     "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
     "modules-right": [],
+    
 	"custom/wayves_left": {
 	    "format": "{}",
 	    "exec": "python ~/.config/wayves/wayves.py -o cava=left -i cava=left -a cava=left"

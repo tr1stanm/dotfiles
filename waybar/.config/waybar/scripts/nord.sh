@@ -2,6 +2,7 @@
 
 CACHE="/home/tristan/.cache/vpnmonitor/ip_location.txt"
 FULLSTATUS=$(nordvpn status)
+DEFAULT_COUNTRY="canada"
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -23,12 +24,15 @@ is_connected() {
 }
 
 get_connection_details() {
-    IP=$(echo "$FULLSTATUS" | grep -o 'IP: [0-9\.]*' | cut -d' ' -f2)
-    CITY=$(echo "$FULLSTATUS" | grep -o 'City: [A-Za-z]*' | cut -d' ' -f2) 
-    COUNTRY=$(echo "$FULLSTATUS" | grep -o 'Country: [A-Za-z]*' | cut -d' ' -f2)
+    IP=$(echo "$FULLSTATUS" | grep -o 'IP: .*' | cut -d' ' -f2-)
+    CITY=$(echo "$FULLSTATUS" | grep -o 'City: .*' | cut -d' ' -f2-) 
+    COUNTRY=$(echo "$FULLSTATUS" | grep -o 'Country: .*' | cut -d' ' -f2-)
     COUNTRYABBREV=$(jq '.[] | select(.country=="'$COUNTRY'").abbreviation' \
         ~/.config/waybar/assets/country-by-abbreviation.json | sed 's/"//g')
-    IP_AND_LOCATION="$IP - $CITY, $COUNTRYABBREV"
+    if [[ -z $COUNTRYABBREV ]]; then
+        COUNTRYABBREV="$COUNTRY"
+    fi
+    IP_AND_LOCATION=$(echo -e "$CITY, $COUNTRYABBREV\n$IP")
 }
 
 connect_msg() {
@@ -44,7 +48,7 @@ toggle_vpn() {
     if is_connected; then
         nordvpn d > /dev/null
     else
-        nordvpn c canada > /dev/null
+        nordvpn c "$DEFAULT_COUNTRY" > /dev/null
     fi
 }
 
@@ -53,17 +57,7 @@ record_connection() {
         if [[ -z "$IP_AND_LOCATION" ]]; then
             get_connection_details
         fi
-        echo "$IP_AND_LOCATION" > $CACHE
-    fi
-}
-
-is_connection_current() {
-    if [[ -e "$CACHE" ]]; then
-        if [[ $(cat "$CACHE") == "$IP_AND_LOCATION" ]]; then
-            return true
-        fi
-    else
-        return false
+        echo -e "$IP_AND_LOCATION" > $CACHE
     fi
 }
 
@@ -80,17 +74,6 @@ if [[ -n "$TOGGLE" ]]; then
     record_connection
     sleep 1
 fi
-
-#if [[ -e "$CACHE" ]] && is_connected; then
-#    get_connection_details
-#    if [[ $(cat $CACHE) == "$IP_AND_LOCATION" ]]; then
-#        output
-#    else
-#        connect_msg
-#        output
-#    fi
-#    exit
-#fi
 
 if is_connected; then
     get_connection_details
