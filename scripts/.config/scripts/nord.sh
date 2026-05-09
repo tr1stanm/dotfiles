@@ -2,8 +2,6 @@
 
 CACHE="$HOME/.cache/vpnmonitor/ip_location.txt"
 WAYBAR_ASSETS="$HOME/.config/waybar/assets"
-DEFAULT_COUNTRY="canada"
-TOGGLE=0
 
 is_connected() {
     ip link show nordlynx &>/dev/null
@@ -19,7 +17,9 @@ get_connection_details() {
     COUNTRY=$(awk -F': ' '/^Country:/ {print $2}' <<< "$FULLSTATUS")
     [[ -n "$IP" && -n "$CITY" && -n "$COUNTRY" ]] || return
 
-    COUNTRYABBREV=$(jq '.[] | select(.country=="'$COUNTRY'").abbreviation' \
+    COUNTRYABBREV=$(
+        jq --arg country "$COUNTRY" \
+        '.[] | select(.country==$country).abbreviation' \
         ~/.config/waybar/assets/country-by-abbreviation.json | sed 's/"//g')
     if [[ -z $COUNTRYABBREV ]]; then
         COUNTRYABBREV="$COUNTRY"
@@ -29,17 +29,9 @@ get_connection_details() {
 
 connect_msg() {
     if is_connected; then
-        notify-send "$IP_AND_LOCATION"
+        notify-send -r 9999 "$IP_AND_LOCATION"
     else
-        notify-send "Disconnected from VPN"
-    fi
-}
-
-toggle_vpn() {
-    if is_connected; then
-        nordvpn d > /dev/null
-    else
-        nordvpn c "$DEFAULT_COUNTRY" > /dev/null
+        notify-send -r 9999 "Disconnected from VPN"
     fi
 }
 
@@ -64,32 +56,21 @@ run() {
     if is_connected; then
         get_connection_details
 
-        if [[ $(cat $CACHE) == "$IP_AND_LOCATION" ]]; then
+        if [[ -f $CACHE ]] && [[ $(<"$CACHE") == "$IP_AND_LOCATION" ]]; then
             output
         else
-            connect_msg
             record_connection
             output
+            connect_msg
         fi
     else
-        if [[ -e $CACHE ]]; then
+        if [[ -f $CACHE ]]; then
             connect_msg
             rm $CACHE
         fi
         output
     fi
 }
-
-while [[ $# -gt 0 ]]; do
-    case $1 in
-        --toggle|-t)
-            toggle_vpn
-            sleep 1
-            run
-            exit
-            ;;
-    esac
-done
 
 get_connection_details
 while true; do

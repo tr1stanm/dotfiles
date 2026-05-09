@@ -8,17 +8,16 @@
         "modules-left": ["custom/notification","clock", "mpris"],
         "modules-center": ["custom/wayves_left", "hyprland/workspaces", "custom/wayves_right"],
         "modules-right": ["clock#date", "bluetooth","network","custom/vpn"],
-
+    
     "custom/vpn": {
         "format": "{text}",
-        "exec": "cat $HOME/.config/waybar/assets/vpnout.txt",
-        "interval": 3,
-        "on-click": "~/.config/scripts/nord.sh --toggle",
+        "exec": "cat /home/tristan/.config/waybar/assets/vpnout.txt",
+        "on-click": "/home/tristan/.config/scripts/togglenord.sh",
         "on-click-right": "nordvpn-gui &",
+        "interval": 3,
         "return-type": "json",
-        "tooltip": "true"
+        "tooltip": true
     },
-
     
 	"mpris": {
 		"format": "{player_icon} {dynamic}",
