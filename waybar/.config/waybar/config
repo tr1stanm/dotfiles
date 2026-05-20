@@ -183,7 +183,17 @@
     "output": "HDMI-A-1",
     "modules-left": ["clock", "mpris"],
     "modules-center": [],
-    "modules-right": ["clock#date"],
+    "modules-right": ["clock#date", "custom/vpn"],
+
+    "custom/vpn": {
+        "format": "{text}",
+        "exec": "cat /home/tristan/.config/waybar/assets/vpnout.txt",
+        "on-click": "/home/tristan/.config/scripts/togglenord.sh",
+        "on-click-right": "nordvpn-gui &",
+        "interval": 3,
+        "return-type": "json",
+        "tooltip": true
+    },
 
 	"custom/wayves": {
 	    "format": "{}",
