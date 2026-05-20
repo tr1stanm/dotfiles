@@ -38,8 +38,8 @@ hl.config({
         gaps_out = 10,
         border_size = 2,
         col = {
-            active_border = { colors = { "rgb(9cdbc3)", "rgb(2BC27C)", angle = 45 }},
-            inactive_border = "rgb(2B9C61)"
+            active_border = { colors = { "rgb(dbddc5)", "rgb(13718B)", angle = 45 }},
+            inactive_border = "rgb(A3AC4B)"
         },
         resize_on_border = false,
         allow_tearing = false,
