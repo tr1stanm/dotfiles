@@ -3,8 +3,6 @@ local term = "kitty"
 local browser = "brave"
 local fileManager = "thunar"
 local menu = "wofi --show drun -n"
-local sudo = "/usr/bin/sudo "
-local scriptsdir = "/home/tristan/.config/scripts/"
 
 -- program binds
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(term))
@@ -18,7 +16,7 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("steam"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("prismlauncher"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
-hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(sudo .. scriptsdir .. " changegif_random.sh"))
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("/usr/bin/sudo /home/tristan/.config/scripts/changegif_random.sh"))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("nautilif"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(term .. " -o background_opacity=0.9 -e btop"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -op"))
