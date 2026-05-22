@@ -1,7 +1,7 @@
 -- window rules
 hl.window_rule({
 	float = true,
-	match = { class = "waypaper " }
+	match = { class = "waypaper" }
 })
 hl.window_rule({
 	float = true,
@@ -31,7 +31,15 @@ hl.window_rule({
     border_size = 0,
     rounding = 0,
     fullscreen = true,
+    monitor = "DP-1",
     match = { class = "^(steam_app_\\d+)$" }
+})
+hl.window_rule({
+    border_size = 0,
+    rounding = 0,
+    fullscreen = true,
+    monitor = "DP-1",
+    match = { title = "dusklight"}
 })
 
 -- layer rules

@@ -24,12 +24,15 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("systemctl --user restart stash-music.service")
     hl.exec_cmd("systemctl --user enable --now easyeffects.service")
     hl.exec_cmd("/home/tristan/.config/scripts/changegifservice.sh")
+    hl.exec_cmd("iwctl station wlan0 scan")
     hl.exec_cmd("nordvpn c canada")
 end)
 
--- env vars. don't really know if it's necessary but idk default cursor size so
+-- env var
 hl.env("XCURSOR_SIZE", 24)
-hl.env("HYPRCURSOR_SIZE", 24)
+
+-- gpu paths. enabling igpu for hyprland so it's being used for something
+-- hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1")
 
 -- general config
 hl.config({
@@ -38,8 +41,8 @@ hl.config({
         gaps_out = 10,
         border_size = 2,
         col = {
-            active_border = { colors = { "rgb(d4d9d8)", "rgb(5CB5C3)", angle = 45 }},
-            inactive_border = "rgb(7B7EAC)"
+            active_border = { colors = { "rgb(e0edec)", "rgb(8DBACE)", angle = 45 }},
+            inactive_border = "rgb(6393AF)"
         },
         resize_on_border = false,
         allow_tearing = false,
