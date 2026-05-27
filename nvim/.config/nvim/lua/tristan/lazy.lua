@@ -43,6 +43,12 @@ require("lazy").setup({
     "simrat39/rust-tools.nvim",
     "rust-lang/rust.vim",
     {
+    "romus204/referencer.nvim",
+    config = function()
+        require("referencer").setup()
+    end
+    },
+    {
       'mrcjkb/rustaceanvim',
       version = '^6', -- Recommended
       lazy = false, -- This plugin is already lazy

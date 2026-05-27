@@ -41,6 +41,10 @@ hl.window_rule({
     monitor = "DP-1",
     match = { title = "dusklight"}
 })
+hl.window_rule({
+    opacity = "1.0 0.95",
+    match = { class = "kitty" }
+})
 
 -- layer rules
 hl.layer_rule({

@@ -46,9 +46,9 @@ record_connection() {
 
 output() {
     if is_connected; then
-        echo '{"text": ""}' > $WAYBAR_ASSETS/vpnout.txt
+        echo '{"text": "󰒘"}' > $WAYBAR_ASSETS/vpnout.txt
     else
-        echo '{"text": ""}' > $WAYBAR_ASSETS/vpnout.txt
+        echo '{"text": "󰦜"}' > $WAYBAR_ASSETS/vpnout.txt
     fi
 }
 

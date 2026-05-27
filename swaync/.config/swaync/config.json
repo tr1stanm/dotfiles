@@ -77,7 +77,7 @@
 
                 {
                     "label": "",
-                    "command": "kitty nmtui"
+                    "command": "iwgtk"
                 },
                 {
                     "label": "",
@@ -88,24 +88,13 @@
                     "command": "swaync-client -d",
                     "type":"toggle"
                 },
-
-                {
-                    "label": "󰀟",
-                    "command": "gnome-network-displays"
-                },
-
                 {
                     "label": "󰈙",
-                    "command": "kitty bash -i -c 'Docs'"
-                },
-                {
-                    "label": "",
-                    "command": "kitty bash -i -c 'Settings'"
-                    
+                    "command": "thunar"
                 },
                 {
                     "label": "",
-                    "command": "kitty bash -i -c 'tasks'"
+                    "command": "kitty -e btop"
 
                 },
                 {
