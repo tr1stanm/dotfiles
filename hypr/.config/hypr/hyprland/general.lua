@@ -1,9 +1,9 @@
 -- monitors
 hl.monitor({
-    output = "DP-1",
-    mode = "3840x2160@60",
+    output = "eDP-1",
+    mode = "2560x1600@60",
     position = "auto",
-    scale = 1.5
+    scale = 1.6
 })
 
 hl.monitor({
@@ -16,6 +16,7 @@ hl.monitor({
 
 -- exec-once
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
     hl.exec_cmd("awww-daemon")
@@ -26,6 +27,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("/home/tristan/.config/scripts/changegifservice.sh")
     hl.exec_cmd("iwctl station wlan0 scan")
     hl.exec_cmd("nordvpn c canada")
+    hl.dispatch(hl.dsp.focus({ workspace = "1" }))
 end)
 
 -- env var
@@ -40,10 +42,6 @@ hl.config({
         gaps_in = 5,
         gaps_out = 10,
         border_size = 0,
-        col = {
-            active_border = { colors = { "rgb(d2dadc)", "rgb(78A9BF)", angle = 45 }},
-            inactive_border = "rgb(396C85)"
-        },
         resize_on_border = false,
         allow_tearing = false,
         layout = "dwindle"
@@ -57,7 +55,7 @@ hl.config({
             enabled = false,
         },
         blur = {
-            enabled = true,
+            enabled = false,
             size = 7,
             passes = 1,
             vibrancy = 0.1696,
@@ -71,3 +69,10 @@ hl.config({
         new_status = "master"
     }
 })
+
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+    -- uses a blocking exec function and sleeps a bit to give things time to close
+    -- you might also want to kill troublesome/crashing non-systemd background services here:
+    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+end)

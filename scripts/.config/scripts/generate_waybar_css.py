@@ -59,18 +59,16 @@ window#waybar {{
 }}
 
 
-.modules-left,
-.modules-center,
-.modules-right {{
-    padding: 7px 10px;
-    margin: 10px 10px 5px 10px;
+#topleft,
+#topright,
+#bottomcenter {{
+    padding: 8px 5px;
+    margin: 10px 10px 10px 10px;
     border-radius: 10px;
     background: rgba({bg[0]},{bg[1]},{bg[2]},0.6);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .6);
 }}
 
-
-/* Tooltip */
 tooltip {{
     background: rgb({bg[0]},{bg[1]},{bg[2]});
     color: rgb({c7[0]},{c7[1]},{c7[2]});

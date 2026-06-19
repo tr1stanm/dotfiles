@@ -18,6 +18,7 @@ alias py='python3'
 alias vpn='nordvpn'
 alias vpngui='nordvpn-gui'
 alias pdf='evince'
+alias vlc='flatpak run org.videolan.VLC'
 
 PS1='[\u@\h \W]\$ '
 

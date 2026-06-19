@@ -5,6 +5,10 @@ hl.window_rule({
 })
 hl.window_rule({
 	float = true,
+	match = { class = "nordvpn-gui" }
+})
+hl.window_rule({
+	float = true,
 	match = { class = "com.github.wwmm.easyeffects" }
 })
 hl.window_rule({
@@ -31,7 +35,7 @@ hl.window_rule({
     border_size = 0,
     rounding = 0,
     fullscreen = true,
-    monitor = "DP-1",
+    monitor = "eDP-1",
     match = { class = "^(steam_app_\\d+)$" }
 })
 hl.window_rule({
@@ -48,17 +52,14 @@ hl.window_rule({
 
 -- layer rules
 hl.layer_rule({
-    blur = true,
-    ignore_alpha =  0.5,
+    ignore_alpha =  0.8,
     match = { class = "wofi" }
 })
 hl.layer_rule({
-    blur = true,
     ignore_alpha = 0.5,
     match = { class = "swaync-control-center" }
 })
 hl.layer_rule({
-    blur = true,
     ignore_alpha = 0.5,
     match = { class = "swaync-notification-window" }
 })
