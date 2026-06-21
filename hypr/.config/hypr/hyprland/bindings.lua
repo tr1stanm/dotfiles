@@ -32,6 +32,9 @@ hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind("switch:on:Lid Switch", function()
+    hl.dsp.exec_cmd("systemctl suspend")
+end)
 
 -- brightness
 hl.bind(mainMod .. " + CONTROL + 1", hl.dsp.exec_cmd("ddcutil --dis=1 setvcp 10 10"))

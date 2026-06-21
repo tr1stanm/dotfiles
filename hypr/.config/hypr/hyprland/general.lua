@@ -2,16 +2,23 @@
 hl.monitor({
     output = "eDP-1",
     mode = "2560x1600@60",
-    position = "auto",
+    position = "0x0",
     scale = 1.6
 })
 
 hl.monitor({
-    output = "HDMI-A-1",
-    mode = "highres",
-    position = "auto-left",
+    output = "desc:Lenovo Group Limited T24-40 V5WNM516",
+    mode = "1920x1080@50",
+    position = "-1080x-1440",
     scale = 1,
     transform = 3
+})
+
+hl.monitor({
+    output = "desc:HP Inc. HP Z27 CN49270NPK",
+    mode = "3840x2160@30",
+    position = "0x-1440",
+    scale = 1.5
 })
 
 -- exec-once
@@ -28,6 +35,11 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("iwctl station wlan0 scan")
     hl.exec_cmd("nordvpn c canada")
     hl.dispatch(hl.dsp.focus({ workspace = "1" }))
+    hl.exec_cmd("hyprpm reload")
+end)
+
+hl.on("monitor.added", function()
+    hl.exec_cmd("/home/tristan/.config/scripts/monitoring.sh")
 end)
 
 -- env var
