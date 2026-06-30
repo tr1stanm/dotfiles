@@ -19,6 +19,7 @@ alias vpn='nordvpn'
 alias vpngui='nordvpn-gui'
 alias pdf='evince'
 alias vlc='flatpak run org.videolan.VLC'
+alias waybar-reload="pkill waybar ; hyprctl dispatch 'hl.dsp.exec_cmd(\"waybar\")'"
 
 PS1='[\u@\h \W]\$ '
 

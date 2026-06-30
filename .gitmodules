@@ -1,0 +1,3 @@
+[submodule "hypr/.config/hypr/hyprspace"]
+	path = hypr/.config/hypr/hyprspace
+	url = https://github.com/KZDKM/Hyprspace

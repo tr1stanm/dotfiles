@@ -3,7 +3,8 @@ hl.monitor({
     output = "eDP-1",
     mode = "2560x1600@60",
     position = "0x0",
-    scale = 1.6
+    scale = 1.6,
+    reserved_area = { top = -30 }
 })
 
 hl.monitor({
@@ -21,8 +22,11 @@ hl.monitor({
     scale = 1.5
 })
 
+
 -- exec-once
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+
     hl.exec_cmd("systemctl --user start hyprland-session.target")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
@@ -40,13 +44,15 @@ end)
 
 hl.on("monitor.added", function()
     hl.exec_cmd("/home/tristan/.config/scripts/monitoring.sh")
+    hl.dispatch(hl.dsp.focus({ workspace = "6" }))
+    hl.dispatch(hl.dsp.focus({ workspace = "9" }))
 end)
 
 -- env var
 hl.env("XCURSOR_SIZE", 24)
-
--- gpu paths. enabling igpu for hyprland so it's being used for something
-hl.env("AQ_DRM_DEVICES", "/dev/dri/card1:/dev/dri/card0")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
 -- general config
 hl.config({

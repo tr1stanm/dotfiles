@@ -1,4 +1,5 @@
 -- migration from hyprlang
+package.path = package.path .. ";" .. "/home/tristan/.config/hypr/hyprspace/?.lua"
 
 require("hyprland.general")
 require("hyprland.workspaces")

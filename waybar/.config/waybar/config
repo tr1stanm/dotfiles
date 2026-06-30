@@ -1,215 +1,340 @@
-[{
-        "group/topleft": {
-            "orientation": "horizontal",
-            "modules": [
-                "custom/notification",
-                "battery",
-                "clock",
-                "mpris"
-            ]
-        },
-        "group/topright": {
-            "orientation": "horizontal",
-            "modules": [
-                "clock#date",
-                "bluetooth",
-                "network",
-                "custom/vpn"
-            ]
-        },
-
-        "layer": "top",
-        "name": "monitor-1",
-        "output": "eDP-1",
-        "mode": "dock",
-        "position": "top",
-        "reload_style_on_change": true,
-        "modules-left": ["group/topleft"],
-        "modules-right": ["group/topright"],
-    
+[
+  {
+    "group/topleft": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/notification",
+        "clock",
+        "mpris"
+      ]
+    },
+    "group/topright": {
+      "orientation": "horizontal",
+      "modules": [
+        "clock#date",
+        "bluetooth",
+        "network",
+        "custom/vpn",
+        "battery"
+      ]
+    },
+    "layer": "top",
+    "name": "monitor-1",
+    "output": "eDP-1",
+    "mode": "dock",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": [
+      "group/topleft"
+    ],
+    "modules-right": [
+      "group/topright"
+    ],
     "custom/vpn": {
-        "format": "{text}",
-        "exec": "cat /home/tristan/.config/waybar/assets/vpnout.txt",
-        "on-click": "/home/tristan/.config/scripts/togglenord.sh",
-        "on-click-right": "nordvpn-gui &",
-        "interval": 3,
-        "return-type": "json",
-        "tooltip": true
+      "format": "{text}",
+      "exec": "cat /home/tristan/.config/waybar/assets/vpnout.txt",
+      "on-click": "/home/tristan/.config/scripts/togglenord.sh",
+      "on-click-right": "nordvpn-gui &",
+      "interval": 3,
+      "return-type": "json",
+      "tooltip": true
     },
-    
-	"mpris": {
-		"format": "{player_icon} {dynamic}",
-		"format-paused": "{status_icon} <i>{dynamic}</i>",
-		"player-icons": {
-			"default": "▶",
-			"mpv": "🎵"
-		},
-		"interval": 1,
-		"status-icons": {
-			"paused": ""
-		},
-		"dynamic-len": 54,
-		"dynamic-importance-order": ["title", "artist", "position", "length", "album"],
-	},
-
-        "custom/notification": {
-            "tooltip": false,
-            "format": "",
-            "on-click": "swaync-client -t -sw",
-            "escape": true
-        },
-        "clock": {
-            "format": "{:%I:%M:%S %p} ",
-            "interval": 1,   
-            "tooltip-format": "<tt>{calendar}</tt>",
-            "calendar": {
-                "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
-                }
-            },
-            "actions": {
-                "on-click-right": "shift_down",
-                "on-click": "shift_up"
-            }
-        },
-	"clock#date": {
-		"format": "{:%a %d %B %Y}",
-	},
-
-        "network": {
-            "format-wifi": "󰖩",
-            "format-ethernet":"",
-            "format-disconnected": "󰖪",
-            "tooltip-format-disconnected": "Error",
-            "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
-            "tooltip-format-ethernet": "{ifname} ",
-            "on-click": "iwgtk"
-        },
-        "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "BT-off",
-            "format-disabled": "󰂲",
-            "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
-        }, 
-        "battery": {
-            "interval":30,
-            "states": {
-                "good": 95,
-                "warning": 30,
-                "critical": 20
-            },
-            "format": "{icon}",
-            "format-charging": "󰂄",
-            "format-plugged": "󰂄 ",
-            "format-alt": "{time} {icon}",
-            "format-icons": [
-                "󰁻",
-            "󰁼",
-            "󰁾",
-            "󰂀",
-            "󰂂",
-            "󰁹"
-            ],
-        },
-        "custom/pacman": {
-            "format": "󰅢 {}",
-            "interval": 30,   
-            "exec": "checkupdates | wc -l",
-            "exec-if": "exit 0",
-            "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
-            "signal": 8,
-            "tooltip": false,
-        },
-        "custom/expand": {
-            "format": "",
-            "tooltip": false
-        },
-        "custom/endpoint":{
-            "format": "|",
-            "tooltip": false
-        },
-        "group/expand": {
-            "orientation": "horizontal",
-            "drawer": {
-                "transition-duration": 600,
-                "transition-to-left": true,
-                "click-to-reveal": true
-            },
-            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"],
-        },
-        "custom/colorpicker": {
-            "format": "{}",
-            "return-type": "json",
-            "interval": "once",
-            "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
-            "on-click": "~/.config/waybar/scripts/colorpicker.sh",
-            "signal": 1
-        },
-        "cpu": {
-            "format": "󰻠",
-            "tooltip": true
-        },
-        "memory": {
-            "format": ""
-        },
-        "temperature": {
-            "critical-threshold": 80,
-            "format": "",
-        },
-        "tray": {
-            "icon-size": 14,
-            "spacing": 10
-        },
-},
-{
+    "mpris": {
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+      },
+      "interval": 1,
+      "status-icons": {
+        "paused": ""
+      },
+      "dynamic-len": 54,
+      "dynamic-importance-order": [
+        "title",
+        "artist",
+        "position",
+        "length",
+        "album"
+      ]
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "",
+      "on-click": "swaync-client -t -sw",
+      "escape": true
+    },
+    "clock": {
+      "format": "{:%I:%M:%S %p} ",
+      "interval": 1,
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "format": {
+          "today": "<span color='#fAfBfC'><b>{}</b></span>"
+        }
+      },
+      "actions": {
+        "on-click-right": "shift_down",
+        "on-click": "shift_up"
+      }
+    },
+    "clock#date": {
+      "format": "{:%a %d %B %Y}"
+    },
+    "network": {
+      "format-wifi": "󰖩",
+      "format-ethernet": "",
+      "format-disconnected": "󰖪",
+      "tooltip-format-disconnected": "Error",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
+      "tooltip-format-ethernet": "{ifname} ",
+      "on-click": "iwgtk"
+    },
+    "bluetooth": {
+      "format-on": "󰂯",
+      "format-off": "BT-off",
+      "format-disabled": "󰂲",
+      "format-connected-battery": "{device_battery_percentage}% 󰂯",
+      "format-alt": "{device_alias} 󰂯",
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "on-click-right": "blueman-manager"
+    },
+    "battery": {
+      "interval": 30,
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 20
+      },
+      "format": "{icon}",
+      "format-charging": "󰂄",
+      "format-plugged": "󰂄 ",
+      "format-alt": "{time} {icon}",
+      "format-icons": [
+        "󰁻",
+        "󰁼",
+        "󰁾",
+        "󰂀",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "custom/pacman": {
+      "format": "󰅢 {}",
+      "interval": 30,
+      "exec": "checkupdates | wc -l",
+      "signal": 8,
+      "tooltip": false
+    },
+    "custom/expand": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/endpoint": {
+      "format": "|",
+      "tooltip": false
+    },
+    "group/expand": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 600,
+        "transition-to-left": true,
+        "click-to-reveal": true
+      },
+      "modules": [
+        "custom/expand",
+        "custom/colorpicker",
+        "cpu",
+        "memory",
+        "temperature",
+        "custom/endpoint"
+      ]
+    },
+    "cpu": {
+      "format": "󰻠",
+      "tooltip": true
+    },
+    "memory": {
+      "format": ""
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": ""
+    },
+    "tray": {
+      "icon-size": 14,
+      "spacing": 10
+    }
+  },
+  {
     "group/bottomcenter": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/wayves_left",
-            "hyprland/workspaces",
-            "custom/wayves_right"
-        ]
+      "orientation": "horizontal",
+      "modules": [
+        "custom/wayves_left",
+        "hyprland/workspaces",
+        "custom/wayves_right"
+      ]
     },
-
-        "layer": "top",
-        "name": "monitor-1",
-        "output": "eDP-1",
-        "mode": "dock",
-        "position": "bottom",
-        "reload_style_on_change": true,
-        "modules-center": ["group/bottomcenter"],
-    
-        "hyprland/workspaces": {
-            "format": "{icon}",
-            "format-icons": {
-                "active": "",
-                "default": "",
-                "empty": ""
-            },
-            "persistent-workspaces": {
-                "*": [ 1,2,3,4,5 ]
-            }
-        },
-
-	"custom/wayves": {
-	    "format": "{}",
-	    "exec": "python ~/.config/wayves/wayves.py -o cava -i cava -a cava"
-	},
-
-	"custom/wayves_left": {
-	    "format": "{}",
-	    "exec": "python ~/.config/wayves/wayves.py -o cava=left -i cava=left -a cava=left"
-	},
-
-	"custom/wayves_right": {
-	    "format": "{}",
-	    "exec": "python ~/.config/wayves/wayves.py -o cava=right -i cava=right -a cava=right"
-	}
-
-}]
+    "layer": "top",
+    "name": "monitor-1",
+    "output": "eDP-1",
+    "mode": "dock",
+    "position": "bottom",
+    "reload_style_on_change": true,
+    "modules-center": [
+      "group/bottomcenter"
+    ],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": "",
+        "empty": ""
+      },
+      "persistent-workspaces": {
+        "*": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "custom/wayves": {
+      "format": "{}",
+      "exec": "python ~/.config/wayves/wayves.py -o cava -i cava -a cava"
+    },
+    "custom/wayves_left": {
+      "format": "{}",
+      "exec": "python ~/.config/wayves/wayves.py -o cava=left -i cava=left -a cava=left"
+    },
+    "custom/wayves_right": {
+      "format": "{}",
+      "exec": "python ~/.config/wayves/wayves.py -o cava=right -i cava=right -a cava=right"
+    }
+  },
+  {
+    "group/topleft2": {
+      "orientation": "horizontal",
+      "modules": [
+        "clock",
+        "mpris"
+      ]
+    },
+    "group/topright2": {
+      "orientation": "horizontal",
+      "modules": [
+        "hyprland/workspaces",
+        "clock#date"
+      ]
+    },
+    "layer": "top",
+    "name": "monitor-2",
+    "output": "DP-10",
+    "mode": "dock",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": [
+      "group/topleft2"
+    ],
+    "modules-right": [
+      "group/topright2"
+    ],
+    "custom/vpn": {
+      "format": "{text}",
+      "exec": "cat /home/tristan/.config/waybar/assets/vpnout.txt",
+      "on-click": "/home/tristan/.config/scripts/togglenord.sh",
+      "on-click-right": "nordvpn-gui &",
+      "interval": 3,
+      "return-type": "json",
+      "tooltip": true
+    },
+    "mpris": {
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+      },
+      "interval": 1
+    },
+    "dynamic-len": 54,
+    "dynamic-importance-order": [
+      "title",
+      "artist",
+      "position",
+      "length",
+      "album"
+    ],
+    "clock": {
+      "format": "{:%I:%M:%S %p} ",
+      "interval": 1
+    },
+    "clock#date": {
+      "format": "{:%a %d %B %Y}"
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": "",
+        "empty": ""
+      },
+      "persistent-workspaces": {
+        "*": [
+          6,
+          7,
+          8
+        ]
+      }
+    }
+  },
+  {
+    "group/bottomleft3": {
+      "orientation": "horizontal",
+      "modules": [
+        "clock"
+      ]
+    },
+    "group/bottomright3": {
+      "orientation": "horizontal",
+      "modules": [
+        "hyprland/workspaces",
+        "clock#date"
+      ]
+    },
+    "layer": "top",
+    "name": "monitor-3-bottom",
+    "position": "bottom",
+    "output": "DP-9",
+    "modules-left": [
+      "group/bottomleft3"
+    ],
+    "modules-right": [
+      "group/bottomright3"
+    ],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": "",
+        "empty": ""
+      }
+    },
+    "clock#date": {
+      "format": "{:%a %d %B %Y}"
+    },
+    "clock": {
+      "format": "{:%I:%M:%S %p} ",
+      "interval": 1
+    },
+    "persistent-workspaces": {
+      "*": [
+        9,
+        10
+      ]
+    }
+  }
+]

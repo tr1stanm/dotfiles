@@ -3,12 +3,13 @@ local term = "kitty"
 local browser = "brave"
 local fileManager = "thunar"
 local menu = "wofi --show drun -n"
+local hyprspace = require("hyprspace.Hyprspace")
 
 -- program binds
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(term))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("easyeffects"))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify-launcher"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("flatpak run com.spotify.Client"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(term .. " -e cava"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filezilla"))
@@ -17,6 +18,9 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("prismlauncher"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("/usr/bin/sudo /home/tristan/.config/scripts/changegif_random.sh"))
+hl.bind(mainMod .. " + A", function()
+    hyprspace.toggle()
+end )
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("nautilif"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(term .. " -o background_opacity=0.9 -e btop"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -op"))
@@ -113,4 +117,20 @@ hl.bind("XF86AudioPlay",
 hl.bind("XF86AudioPrev",
 	hl.dsp.exec_cmd("playerctl previous"), {
 	locked = true
+})
+hl.bind("XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("brightnessctl s 10%-"), {
+	locked = false
+})
+hl.bind("XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("brightnessctl s 10%+"), {
+	locked = false
+})
+hl.bind("XF86KbdBrightnessDown",
+    hl.dsp.exec_cmd("brightnessctl -d ':white:kbd_backlight' set 10%-"), {
+    locked = false
+})
+hl.bind("XF86KbdBrightnessUp",
+    hl.dsp.exec_cmd("brightnessctl -d ':white:kbd_backlight' set 10%+"), {
+    locked = false
 })

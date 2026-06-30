@@ -1,0 +1,11 @@
+[Unit]
+Description=TinyDFR Audio Helper
+After=graphical-session.target
+
+[Service]
+PassEnvironment=XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS WAYLAND_DISPLAY
+ExecStart=/usr/bin/sudo /usr/local/bin/tiny-dfr-audio-helper
+Restart=always
+
+[Install]
+WantedBy=default.target

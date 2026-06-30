@@ -61,7 +61,13 @@ window#waybar {{
 
 #topleft,
 #topright,
-#bottomcenter {{
+#bottomcenter,
+#topleft2,
+#topcenter2,
+#topright2,
+#bottomleft3,
+#bottomcenter3,
+#bottomright3 {{
     padding: 8px 5px;
     margin: 10px 10px 10px 10px;
     border-radius: 10px;

@@ -1,15 +1,17 @@
+local hyprspace = require("hyprspace.Hyprspace")
+
 hl.gesture({
     fingers = 4,
     direction = "up",
     action = function()
-        hl.plugin.hyprexpo.expo("on")
+        hyprspace.overview("open")
     end
 })
 hl.gesture({
     fingers = 4,
     direction = "down",
     action = function()
-        hl.plugin.hyprexpo.expo("off")
+        hyprspace.overview("close")
     end
 })
 hl.gesture({

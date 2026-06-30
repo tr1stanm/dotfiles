@@ -20,6 +20,13 @@ require("lazy").setup({
 	"hrsh7th/vim-vsnip-integ",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
+    {
+      'nvim-java/nvim-java',
+      config = function()
+        require('java').setup()
+        vim.lsp.enable('jdtls')
+      end,
+    },
 	"rcarriga/nvim-notify",
 	"neovim/nvim-lspconfig",
 	"rafamadriz/friendly-snippets",
