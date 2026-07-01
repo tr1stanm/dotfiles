@@ -232,7 +232,7 @@
     },
     "layer": "top",
     "name": "monitor-2",
-    "output": "DP-10",
+    "output": "DP-8",
     "mode": "dock",
     "position": "top",
     "reload_style_on_change": true,
@@ -308,7 +308,7 @@
     "layer": "top",
     "name": "monitor-3-bottom",
     "position": "bottom",
-    "output": "DP-9",
+    "output": "DP-7",
     "modules-left": [
       "group/bottomleft3"
     ],
