@@ -19,6 +19,14 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
 hl.bind("CONTROL + SHIFT + F5", hl.dsp.exec_cmd("waypaper --random"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("/usr/bin/sudo /home/tristan/.config/scripts/changegif_random.sh"))
+hl.bind("CONTROL + SHIFT + F1", function()
+    local window = hl.get_window('class:spotify')
+    if window ~= nil then
+        hl.dispatch(hl.dsp.focus({ window = window }))
+    else
+        hl.dispatch(hl.dsp.exec_cmd("flatpak run com.spotify.Client"))
+    end
+end)
 hl.bind("CONTROL + SHIFT + F6", function()
     hyprspace.toggle()
 end )
