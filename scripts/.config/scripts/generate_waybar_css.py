@@ -49,8 +49,8 @@ css = f"""/* ================================
    Your Waybar styling
    ================================ */
 window#waybar * {{
-    font-size: 18px;
-    font-family: "Agave Nerd Font Propo";
+    font-size: 16px;
+    font-family: "ZedMono Nerd Font Mono";
 }}
 
 
@@ -103,6 +103,7 @@ tooltip {{
     padding: 0px 5px;
     color: rgb({c7[0]},{c7[1]},{c7[2]});
     transition: all .3s ease;
+    font-size: 30px;
 }}
 
 

@@ -163,7 +163,7 @@
       "format": ""
     },
     "tray": {
-      "icon-size": 14,
+      "icon-size": 18,
       "spacing": 10
     }
   },
@@ -187,10 +187,11 @@
     ],
     "hyprland/workspaces": {
       "format": "{icon}",
+      "icon-size": 18,
       "format-icons": {
-        "active": "",
-        "default": "",
-        "empty": ""
+        "active": "",
+        "default": "",
+        "empty": ""
       },
       "persistent-workspaces": {
         "*": [
