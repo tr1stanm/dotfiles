@@ -65,7 +65,7 @@ hl.config({
         layout = "dwindle"
     },
     decoration = {
-        rounding = 8,
+        rounding = 3,
         rounding_power = 4,
         active_opacity = 1.0,
         inactive_opacity = 1.0,

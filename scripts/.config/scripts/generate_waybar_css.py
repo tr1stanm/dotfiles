@@ -69,8 +69,8 @@ window#waybar {{
 #bottomcenter3,
 #bottomright3 {{
     padding: 8px 5px;
-    margin: 10px 10px 10px 10px;
-    border-radius: 10px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 3px;
     background: rgba({bg[0]},{bg[1]},{bg[2]},0.6);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, .6);
 }}

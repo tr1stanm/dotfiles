@@ -7,8 +7,8 @@
    ================================ */
 @define-color background rgb(30,30,46);
 @define-color foreground rgb(205,214,244);
-@define-color color7 rgb(214,215,218);
-@define-color color9 rgb(121,125,130);
+@define-color color7 rgb(194,222,226);
+@define-color color9 rgb(44,157,163);
 
 
 
@@ -36,15 +36,15 @@ window#waybar {
 #bottomcenter3,
 #bottomright3 {
     padding: 8px 5px;
-    margin: 10px 10px 10px 10px;
-    border-radius: 10px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 3px;
     background: rgba(30,30,46,0.6);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, .6);
 }
 
 tooltip {
     background: rgb(30,30,46);
-    color: rgb(214,215,218);
+    color: rgb(194,222,226);
 }
 
 
@@ -60,7 +60,7 @@ tooltip {
 #temperature:hover,
 #custom-vpn:hover {
     transition: all .3s ease;
-    color: rgb(121,125,130);
+    color: rgb(44,157,163);
 }
 
 
@@ -68,7 +68,7 @@ tooltip {
 #clock, #custom-notification, #custom-pacman,
 #bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris, #custom-vpn {
     padding: 0px 5px;
-    color: rgb(214,215,218);
+    color: rgb(194,222,226);
     transition: all .3s ease;
 }
 
@@ -91,7 +91,7 @@ tooltip {
 #workspaces button {
     all: unset;
     padding: 0px 5px;
-    color: rgba(121,125,130,0.4);
+    color: rgba(44,157,163,0.4);
     transition: all .2s ease;
 }
 #workspaces button:hover { 
@@ -101,7 +101,7 @@ tooltip {
     transition: all 1s ease; 
 }
 #workspaces button.active { 
-    color: rgb(121,125,130); 
+    color: rgb(44,157,163); 
     border: none; 
     text-shadow: 0px 0px 2px rgba(0,0,0,.5); 
 }
@@ -117,7 +117,7 @@ tooltip {
     transition: all 1s ease; 
 }
 #workspaces button.empty.active { 
-    color: rgb(121,125,130); 
+    color: rgb(44,157,163); 
     border: none; 
     text-shadow: 0px 0px 2px rgba(0,0,0,.5); 
 }
@@ -135,7 +135,7 @@ tooltip {
 /* Custom expand module */
 #custom-expand {
     padding: 0px 5px;
-    color: rgba(214,215,218,.2);
+    color: rgba(194,222,226,.2);
     text-shadow: 0px 0px 2px rgba(0,0,0,.7);
     transition: all .3s ease;
 }
@@ -148,10 +148,10 @@ tooltip {
 #custom-cava {
     padding: 0px 5px;
     transition: all .3s ease;
-    color: rgb(214,215,218);
+    color: rgb(194,222,226);
 }
 #custom-cava:hover {
-    color: rgb(121,125,130);
+    color: rgb(44,157,163);
 }
 
 
@@ -175,5 +175,5 @@ window#waybar.monitor-2-top * { font-size: 17px; }
 
 #custom-wayves_left,
 #custom-wayves_right {
-  color: #BABDC2;
+  color: #6CC6CC;
 }
