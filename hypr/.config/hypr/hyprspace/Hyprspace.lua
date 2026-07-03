@@ -165,14 +165,6 @@ local function build_config()
                 show_special_workspace = false,
 
                 disable_gestures = true,
-                reverse_swipe = false,
-                swipe_fingers = 3,
-                swipe_distance = 300,
-                swipe_force_speed = 30,
-                swipe_cancel_ratio = 0.5,
-                swipe_threshold = 10.0,
-                swipe_closed_padding = 10.0,
-                workspace_scroll_speed = 2.0,
 
                 disable_blur = false,
                 override_anim_speed = 0.0,

@@ -17,19 +17,7 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("steam"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("prismlauncher"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
-hl.bind("CONTROL + SHIFT + F5", hl.dsp.exec_cmd("waypaper --random"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("/usr/bin/sudo /home/tristan/.config/scripts/changegif_random.sh"))
-hl.bind("CONTROL + SHIFT + F1", function()
-    local window = hl.get_window('class:spotify')
-    if window ~= nil then
-        hl.dispatch(hl.dsp.focus({ window = window }))
-    else
-        hl.dispatch(hl.dsp.exec_cmd("flatpak run com.spotify.Client"))
-    end
-end)
-hl.bind("CONTROL + SHIFT + F6", function()
-    hyprspace.toggle()
-end )
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("nautilif"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(term .. " -o background_opacity=0.9 -e btop"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -op"))
@@ -48,6 +36,20 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 hl.bind("switch:on:Lid Switch", function()
     hl.dsp.exec_cmd("systemctl suspend")
 end)
+
+-- tiny-dfr binds
+hl.bind("CONTROL + SHIFT + F1", function()
+    local window = hl.get_window('class:spotify')
+    if window ~= nil then
+        hl.dispatch(hl.dsp.focus({ window = window }))
+    else
+        hl.dispatch(hl.dsp.exec_cmd("flatpak run com.spotify.Client"))
+    end
+end)
+hl.bind("CONTROL + SHIFT + F6", hl.dsp.exec_cmd("waypaper --random"))
+hl.bind("CONTROL + SHIFT + F7", function()
+    hyprspace.toggle()
+end )
 
 -- brightness
 hl.bind(mainMod .. " + CONTROL + 1", hl.dsp.exec_cmd("ddcutil --dis=1 setvcp 10 10"))

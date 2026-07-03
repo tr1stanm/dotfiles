@@ -63,3 +63,11 @@ hl.layer_rule({
     ignore_alpha = 0.5,
     match = { class = "swaync-notification-window" }
 })
+hl.layer_rule({
+  name = "swaync-slide-right",
+  match = { namespace = "swaync-control-center" },
+  animation = "slide right", -- Applies the 'slide right' style
+  blur = true,               -- Optional: Enable blur
+  ignore_alpha = 0.5,        -- Optional: Adjust transparency
+})
+
