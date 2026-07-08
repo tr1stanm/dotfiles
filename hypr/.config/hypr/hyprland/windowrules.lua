@@ -5,6 +5,11 @@ hl.window_rule({
 })
 hl.window_rule({
 	float = true,
+	match = { class = "thunar" },
+    size = { 1000, 800 }
+})
+hl.window_rule({
+	float = true,
 	match = { class = "nordvpn-gui" }
 })
 hl.window_rule({
