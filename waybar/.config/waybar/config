@@ -15,7 +15,8 @@
         "bluetooth",
         "network",
         "custom/vpn",
-        "battery"
+        "battery",
+        "custom/percentage"
       ]
     },
     "layer": "top",
@@ -38,6 +39,11 @@
       "interval": 3,
       "return-type": "json",
       "tooltip": true
+    },
+    "custom/percentage": {
+        "format": "{text}",
+        "exec": "echo $(cat /sys/class/power_supply/BAT0/capacity)%",
+        "interval": 30
     },
     "mpris": {
       "format": "{player_icon} {dynamic}",

@@ -50,7 +50,7 @@ css = f"""/* ================================
    ================================ */
 window#waybar * {{
     font-size: 16px;
-    font-family: "Hurmit Nerd Font";
+    font-family: "Iosevka Nerd Font";
 }}
 
 
@@ -92,6 +92,7 @@ tooltip {{
 #memory:hover,
 #temperature:hover,
 #custom-vpn:hover {{
+    padding: 0px 5px;
     transition: all .3s ease;
     color: rgb({c9[0]},{c9[1]},{c9[2]});
 }}
@@ -99,11 +100,11 @@ tooltip {{
 
 /* Clock, notification, and pacman */
 #clock, #custom-notification, #custom-pacman,
-#bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris, #custom-vpn {{
+#bluetooth, #network, #battery, #cpu, #memory, #temperature, #mpris, #custom-vpn, #custom-percentage{{
     padding: 0px 5px;
     color: rgb({c7[0]},{c7[1]},{c7[2]});
     transition: all .3s ease;
-    font-size: 18px;
+    font-size: 16px;
 }}
 
 

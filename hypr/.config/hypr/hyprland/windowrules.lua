@@ -18,6 +18,16 @@ hl.window_rule({
 })
 hl.window_rule({
 	float = true,
+	match = { class = "font-manager" },
+    size = { 1000, 800 }
+})
+hl.window_rule({
+	float = true,
+	match = { class = "org.twosheds.iwgtk" },
+    size = { 1000, 800 }
+})
+hl.window_rule({
+	float = true,
 	match = { class = "ca.parallel_launcher.ParallelLauncher" }
 })
 hl.window_rule({
